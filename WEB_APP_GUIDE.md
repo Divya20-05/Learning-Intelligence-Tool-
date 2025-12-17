@@ -1,115 +1,177 @@
-# Web Application Guide
+# 🌐 Web Application - Complete Setup Guide
 
-## 🌐 Running the Web Interface
+## ✨ What's New
 
-The Learning Intelligence Tool now includes a **beautiful web interface** that allows users to upload CSV/JSON files and get predictions through their browser!
-
-### Quick Start
-
-1. **Navigate to project directory:**
-   ```bash
-   cd /Users/adityajatling/Documents/Internship_Tools/learning-intelligence-tool
-   ```
-
-2. **Run the web application:**
-   ```bash
-   python3 app.py
-   ```
-   
-   Or use the run script:
-   ```bash
-   python3 run_web_app.py
-   ```
-
-3. **Open your browser:**
-   ```
-   http://localhost:5000
-   ```
-
-### Features
-
-✨ **Drag & Drop Upload** - Simply drag your CSV/JSON file onto the upload area  
-📊 **Real-time Validation** - Instant feedback on data format and statistics  
-🤖 **Automatic Predictions** - AI predictions run automatically after upload  
-📈 **Interactive Results** - Tabbed interface with multiple views  
-💾 **Download Reports** - Get JSON, CSV, or text reports with one click  
-🎨 **Premium Design** - Modern, gradient UI with smooth animations  
-
-### Using the Web Interface
-
-1. **Upload File**
-   - Click "Choose File" or drag & drop your CSV/JSON file
-   - File is automatically validated
-   - See data statistics instantly
-
-2. **View Results**
-   - **Overview**: Summary statistics and risk distribution
-   - **High-Risk Students**: Students needing intervention
-   - **Difficult Chapters**: Chapters requiring improvement
-   - **Key Factors**: Feature importance rankings
-   - **Full Report**: Complete text analysis
-
-3. **Download Reports**
-   - Click download buttons to get:
-     - JSON report with all predictions
-     - Text report for reading
-     - ZIP file with all CSV reports
-
-4. **Upload New File**
-   - Click "Upload New File" to analyze another dataset
-
-### API Endpoints
-
-The web app also provides REST API endpoints:
-
-- `POST /upload` - Upload and validate file
-- `POST /predict` - Run predictions
-- `GET /download/<output_dir>/<report_type>` - Download reports
-- `GET /health` - Health check
-
-### File Format Requirements
-
-Your CSV/JSON must include these columns:
-- `student_id` - Student identifier
-- `course_id` - Course identifier  
-- `chapter_order` - Chapter number (≥ 1)
-- `time_spent` - Minutes spent (≥ 0)
-- `score` - Assessment score (0-100)
-- `completion_status` - 1 if completed, 0 if not
-
-### Screenshots
-
-The web interface includes:
-- 🎨 Beautiful gradient header
-- 📤 Drag & drop upload area
-- 📊 Interactive statistics cards
-- 📑 Tabbed results view
-- 💾 One-click downloads
-- 📱 Responsive design (works on mobile!)
-
-### Stopping the Server
-
-Press `Ctrl+C` in the terminal to stop the web server.
+The Learning Intelligence Tool now has a **beautiful web interface**! Users can upload CSV/JSON files through their browser and get instant predictions with downloadable reports.
 
 ---
 
-## 🚀 Both Interfaces Available
+## 🚀 How to Run the Web App
 
-You now have **two ways** to use the Learning Intelligence Tool:
+### Step 1: Navigate to Project
+```bash
+cd /Users/adityajatling/Documents/Internship_Tools/learning-intelligence-tool
+```
 
-### 1. Command Line Interface (CLI)
+### Step 2: Start the Web Server
+```bash
+python3 app.py
+```
+
+**You'll see:**
+```
+================================================================================
+🚀 Learning Intelligence Tool - Web Interface
+================================================================================
+
+📍 Server starting at: http://localhost:8080
+
+💡 Instructions:
+   1. Open http://localhost:8080 in your browser
+   2. Upload a CSV or JSON file with learner data
+   3. Get predictions and download reports
+
+================================================================================
+```
+
+### Step 3: Open in Browser
+Open your web browser and go to:
+```
+http://localhost:8080
+```
+
+---
+
+## 🎨 Web Interface Features
+
+### 1. **Drag & Drop Upload**
+- Drag your CSV/JSON file onto the upload area
+- Or click "Choose File" to browse
+- Instant validation with statistics
+
+### 2. **Automatic Predictions**
+- AI predictions run automatically after upload
+- See loading indicator with progress
+- Results appear in seconds
+
+### 3. **Interactive Results Dashboard**
+- **Overview Tab**: Summary stats and risk distribution
+- **High-Risk Students Tab**: Students needing intervention
+- **Difficult Chapters Tab**: Chapters requiring improvement
+- **Key Factors Tab**: Feature importance with visual bars
+- **Full Report Tab**: Complete text analysis
+
+### 4. **One-Click Downloads**
+- 📄 **JSON Report** - All predictions in JSON format
+- 📝 **Text Report** - Human-readable analysis
+- 📊 **CSV Reports** - ZIP file with all CSV files
+
+### 5. **Premium Design**
+- Beautiful gradient backgrounds
+- Smooth animations
+- Responsive (works on mobile!)
+- Modern, professional look
+
+---
+
+## 📋 Usage Workflow
+
+1. **Start Server**
+   ```bash
+   python3 app.py
+   ```
+
+2. **Upload File**
+   - Open http://localhost:5000
+   - Upload your CSV/JSON file
+   - See validation results
+
+3. **View Predictions**
+   - Automatic analysis runs
+   - Browse results in tabs
+   - See high-risk students
+   - Check difficult chapters
+
+4. **Download Reports**
+   - Click download buttons
+   - Get JSON, Text, or CSV reports
+   - Save for later use
+
+5. **Upload Another File**
+   - Click "Upload New File"
+   - Repeat the process
+
+---
+
+## 🔧 API Endpoints (For Developers)
+
+The web app also provides REST API:
+
+### Upload File
+```bash
+POST /upload
+Content-Type: multipart/form-data
+Body: file=<your_file>
+```
+
+### Run Predictions
+```bash
+POST /predict
+Content-Type: application/json
+Body: {"filename": "upload_20250101_120000.csv"}
+```
+
+### Download Report
+```bash
+GET /download/<output_dir>/json
+GET /download/<output_dir>/text
+GET /download/<output_dir>/csv
+```
+
+---
+
+## 🎯 Two Interfaces Available
+
+### CLI (Command Line)
 ```bash
 learning-intelligence-tool predict -i data/sample_input.csv -f all
 ```
 **Best for:** Automation, scripts, batch processing
 
-### 2. Web Interface
+### Web Interface
 ```bash
 python3 app.py
 # Open http://localhost:5000
 ```
-**Best for:** Interactive use, demonstrations, non-technical users
+**Best for:** Interactive use, demos, non-technical users
 
 ---
 
-**Choose the interface that works best for your needs!**
+## 🛑 Stopping the Server
+
+Press `Ctrl+C` in the terminal to stop the web server.
+
+---
+
+## 📸 What You'll See
+
+The web interface includes:
+- 🎨 Gradient purple header with tool name
+- 📤 Large drag-and-drop upload area
+- 📊 Statistics cards with data summary
+- 📑 Tabbed interface for results
+- 💾 Download buttons for reports
+- 🔄 "Upload New File" button to reset
+
+---
+
+## ✅ Requirements
+
+All dependencies are already installed:
+- Flask (web framework)
+- Werkzeug (file handling)
+- All ML dependencies
+
+---
+
+**Enjoy the new web interface! 🎉**
